@@ -38,4 +38,4 @@
     </div>
 </nav>
 </header>
-<div class="bg-light">
+<div>
