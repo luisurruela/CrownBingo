@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series PDF</title>
+</head>
+<style>
+    ul {
+        padding: 0;
+    }
+    .caja {
+        display: inline-block;
+        list-style: none;
+        height: 50px;
+        width: 50px;
+        line-height: 55px;
+        color: #777777;
+        text-align: center;
+        background-color: #fefefe;
+        border: 2px solid #cccccc;
+        margin-bottom: 5px;
+        vertical-align: middle;
+    }
+    .cartones {
+        display:block;
+        width: 100%;
+    }
+    .carton-box {
+        background-color: #dadada;
+        margin: 5px;
+        padding: 15px;
+        width: 40%;
+        height: 240px;
+    }
+    .page_break { page-break-before: always; }
+</style>
+<body>
+    <h1>Serie <?=$serie_id?></h1>
+    <p>Fecha: <?=date('d-m-Y', strtotime($arr[0]['fecha']))?></p>
+    <hr>
+    <div class="cartones">
+        <?php for($i=0;$i<=5;$i++) :?>
+        <div class="carton-box">
+            <p>Folio: <?=$arr[$i]['folio']?></p>
+            <?php 
+            $count = 0;
+            $nums = 0;
+            foreach($arr[$i]['numeros'] as $num) :?>
+            <div class="caja"><?=$num?></div>
+            <?php if($count == 4) : 
+            $count = -1;?>
+            <br>
+            <?php endif; ?>
+            <?php $count++; endforeach; ?>
+        </div>
+        <?php endfor; ?>
+    </div>
+    <div class="page_break"></div>
+    <h1>Serie <?=$serie_id?></h1>
+    <p>Fecha: <?=date('d-m-Y', strtotime($arr2[0]['fecha']))?></p>
+    <hr>
+    <div class="cartones">
+        <?php for($i=0;$i<=5;$i++) :?>
+        <div class="carton-box">
+            <p>Folio: <?=$arr2[$i]['folio']?></p>
+            <?php 
+                $count = 0;
+                $nums = 0;
+                foreach($arr2[$i]['numeros'] as $num) :?>
+            <div class="caja"><?=$num?></div>
+            <?php if($count == 4) : 
+                $count = -1;?>
+            <br>
+            <?php endif; ?>
+            <?php $count++; endforeach; ?>
+        </div>
+        <?php endfor; ?>
+    </div>
+</body>
+</html>
