@@ -3,12 +3,15 @@ session_start();
 
 // Validar si recibimos variables por POST.
 if (isset($_POST) && isset($_POST['crear'])) {
+
+    // Recibir ID de Cliente
+    $cliente_id = $_POST['cliente_id'];
     
     // Abrir sesión de base de datos
     require_once('../config/db.php');
 
     // Crear nuevo registro en la tabla Series para generar un ID de la Serie.
-    $sql = "INSERT INTO series (cliente_id) VALUES (null)";
+    $sql = "INSERT INTO series (cliente_id) VALUES ($cliente_id)";
     $guardar = $conn->query($sql);
     $serie_id = $conn->insert_id;
 
@@ -41,7 +44,7 @@ if (isset($_POST) && isset($_POST['crear'])) {
 
         $numeros = implode(" ", $array);
 
-        $sql = "INSERT INTO cartones (serie_id, numeros, numeros_original, fecha_juego) VALUES ($serie_id, '$numeros', '$numeros', CURDATE())";
+        $sql = "INSERT INTO cartones (cliente_id, serie_id, numeros, numeros_original, fecha_juego) VALUES ($cliente_id, $serie_id, '$numeros', '$numeros', CURDATE())";
         $guardar = $conn->query($sql);
 
     }
@@ -75,7 +78,7 @@ if (isset($_POST) && isset($_POST['crear'])) {
 
         $numeros = implode(" ", $array);
 
-        $sql = "INSERT INTO cartones (serie_id, numeros, numeros_original, fecha_juego) VALUES ($serie_id, '$numeros', '$numeros', CURDATE() + INTERVAL 1 DAY)";
+        $sql = "INSERT INTO cartones (cliente_id, serie_id, numeros, numeros_original, fecha_juego) VALUES ($cliente_id, $serie_id, '$numeros', '$numeros', CURDATE() + INTERVAL 1 DAY)";
         $guardar = $conn->query($sql);
 
     }

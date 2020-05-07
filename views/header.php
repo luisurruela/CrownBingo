@@ -27,13 +27,24 @@
                 <a class="nav-link" data-toggle="modal" href="#" data-target="#nuevo_cliente">Nuevo Cliente</a>
             </li>
             <li class="nav-item">
-                <form action="inc/series.php" method="post">
-                    <button type="submit" class="nav-link btn" name="crear">Crear Serie</button>
-                </form>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="bingo.php">Iniciar Bingo</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="series.php">Series</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?=$_SESSION['user']['name']?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!--<a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>-->
+                <div class="dropdown-divider"></div>
+                <form action="inc/logout.php" method="post">
+                    <button type="submit" class="dropdown-item" name="logout" value="1">Cerrar sesión</button>  
+                </form>
+            </div>
+        </li>
         </ul>
     </div>
 </nav>

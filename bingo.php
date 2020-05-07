@@ -30,13 +30,16 @@ $numeros = todos_los_numeros_del_bingo_del_dia();
                     </div>
                 </form>
                 <p class="pt-4 pb-4">Cartones en juego: <?= $cartones->num_rows ?></p>
-                <h3>Números: <?=count($numeros)?></h3>
-                <div class="row p-3">
-                    <?php foreach($numeros as $numero): ?>  
-                    <div class="col-1 p-2 bg-warning m-1 text-center text-dark"><?= $numero ?></div>
-                    <?php endforeach ?>
-                </div>
-                <hr>
+                
+                <?php if((count($numeros) > 0) && !empty($numeros[0])) : ?>
+                    <h3>Números: <?=count($numeros)?></h3>
+                    <div class="row p-3">
+                        <?php foreach($numeros as $numero): ?>  
+                        <div class="col-1 p-2 bg-warning m-1 text-center text-dark"><?= $numero ?></div>
+                        <?php endforeach ?>
+                    </div>
+                    <hr>
+                <?php endif ?>
             </div>
         </div>
     </div>

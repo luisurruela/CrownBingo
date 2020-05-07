@@ -95,6 +95,9 @@ if (isset($_POST) && isset($_POST['guardar_numero'])) {
             }
         }
 
+        $status = "success";
+        $msg = "<strong>" . $num . "</strong> cantado!";
+
     }
 
     //Crear variable de sesión Confirmación

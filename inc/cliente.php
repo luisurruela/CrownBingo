@@ -2,7 +2,7 @@
 
 if (isset($_POST)) {
 
-    // Agregar Cliente
+    // Agregar Nuevo Cliente
     if (isset($_POST['guardar'])) {
 
         $nombre = $_POST['nombre'];
@@ -22,9 +22,23 @@ if (isset($_POST)) {
 
     }
 
+    if (isset($_POST['update'])) {
+
+        $nombre = $_POST['nombre'];
+        $id = $_POST['cliente_id'];
+    
+        require_once('../config/db.php');
+        $sql = "UPDATE clientes SET nombre = '$nombre' WHERE id = $id";
+        $guardar = $conn->query($sql);
+
+        $conn->close();
+        header("Location: ../index.php");
+
+    }
+
     if (isset($_POST['borrar'])) {
-        var_dump($_POST); die();
-        $id = $_POST['id'];
+        
+        $id = $_POST['cliente_id'];
         
         require_once('../config/db.php');
         $sql = "DELETE FROM clientes WHERE id = $id";

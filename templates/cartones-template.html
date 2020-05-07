@@ -42,7 +42,7 @@
     <div class="cartones">
         <?php for($i=0;$i<=5;$i++) :?>
         <div class="carton-box">
-            <p>Folio: <?=$arr[$i]['folio']?></p>
+            <p>Folio: <?=$arr[$i]['folio']?> | Fecha: <?=date('d-m-Y', strtotime($arr[0]['fecha']))?></p>
             <?php 
             $count = 0;
             $nums = 0;
@@ -50,27 +50,6 @@
             <div class="caja"><?=$num?></div>
             <?php if($count == 4) : 
             $count = -1;?>
-            <br>
-            <?php endif; ?>
-            <?php $count++; endforeach; ?>
-        </div>
-        <?php endfor; ?>
-    </div>
-    <div class="page_break"></div>
-    <h1>Serie <?=$serie_id?></h1>
-    <p>Fecha: <?=date('d-m-Y', strtotime($arr2[0]['fecha']))?></p>
-    <hr>
-    <div class="cartones">
-        <?php for($i=0;$i<=5;$i++) :?>
-        <div class="carton-box">
-            <p>Folio: <?=$arr2[$i]['folio']?></p>
-            <?php 
-                $count = 0;
-                $nums = 0;
-                foreach($arr2[$i]['numeros'] as $num) :?>
-            <div class="caja"><?=$num?></div>
-            <?php if($count == 4) : 
-                $count = -1;?>
             <br>
             <?php endif; ?>
             <?php $count++; endforeach; ?>

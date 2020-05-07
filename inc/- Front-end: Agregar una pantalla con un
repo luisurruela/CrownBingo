@@ -1,0 +1,14 @@
+- Front-end: Agregar una pantalla con un diseño de bingo (que muestre el premio de $10k), pedir a Mike, te explico bien en cuanto pueda.
+
+
+Avances:
+- En la sección de clientes aún no se pueden usar agregar series, depósitos o editar.
+- Al agregar un nuevo cliente sería ideal que mostrara desde el inicio el ID (1. Jorge, 2. Luis, etc.)
+- Dentro del cartón de una serie creada debería verse la fecha y no solo en el encabezado.
+- Al iniciar un bingo y escribir el primer número, siempre sale una alerta de error sin texto
+
+- Para no confundir al cliente, en lugar de un PDF con 12 cartones, deberíamos generar 2 con 6 cada uno (misma serie).
+- Hay que tener una forma de archivar los cartones de dias anteriores que ya no se usen.
+
+PENDIENTES:
+- Agregar Login

@@ -4,11 +4,14 @@ require_once('./config/db.php');
 require_once('./vendor/autoload.php');
 use Dompdf\Dompdf;
 
-// Obtener id de la serie
+// Obtener id de la serie y fecha
 $serie_id = $_GET['id'];
+$fecha_juego = $_GET['fecha'];
+
+//var_dump($fecha_juego); die();
 
 // Buscar cartones relacionados con el id de serie. Día actual
-$sql = "SELECT * FROM cartones WHERE serie_id = $serie_id AND fecha_juego = CURDATE() ORDER BY id ASC";
+$sql = "SELECT * FROM cartones WHERE serie_id = $serie_id AND fecha_juego = '$fecha_juego' ORDER BY id ASC";
 $result = $conn->query($sql);
 $array_num = 0;
 
@@ -26,7 +29,7 @@ while($carton = $result->fetch_assoc()) {
 }
 
 // Buscar cartones relacionados con el id de serie. Siguiente día
-$sql = "SELECT * FROM cartones WHERE serie_id = $serie_id AND fecha_juego = (CURDATE() + INTERVAL 1 DAY) ORDER BY id ASC";
+/*$sql = "SELECT * FROM cartones WHERE serie_id = $serie_id AND fecha_juego = (CURDATE() + INTERVAL 1 DAY) ORDER BY id ASC";
 $result = $conn->query($sql);
 $array_num = 0;
 
@@ -41,7 +44,7 @@ while($carton = $result->fetch_assoc()) {
 
     $array_num++;
     
-}
+}*/
 
 // instantiate and use the dompdf class
 $dompdf = new Dompdf();
