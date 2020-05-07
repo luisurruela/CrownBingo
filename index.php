@@ -28,9 +28,10 @@ $depositos = todos_los_depositos();
                 <?php while ($serie = $series->fetch_assoc()):?>
                     <p>Serie ID: <?=$serie['id']?> | Cliente: <?=$serie['cliente']?></p>
                     <?php $cartones = cartones_de_la_serie($serie['id']);
+                    $counter = 1;
                     while($carton = $cartones->fetch_assoc()):?>
-                    <div class="mt-3 d-inline"><a class="btn btn-outline-secondary btn-sm" href="print.php?id=<?=$serie['id']?>&fecha=<?=$carton['fecha_juego']?>">Descargar</a></div>
-                    <?php endwhile ?>
+                    <div class="mt-3 d-inline"><a class="btn btn-outline-secondary btn-sm" href="print.php?id=<?=$serie['id']?>&fecha=<?=$carton['fecha_juego']?>">Cartones Día <?=$counter?></a></div>
+                    <?php $counter++; endwhile ?>
                     <hr>
                 <?php endwhile ?>
             </div>

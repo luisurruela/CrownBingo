@@ -21,7 +21,7 @@
     <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" href="#" data-target="#nuevo_cliente">Nuevo Cliente</a>

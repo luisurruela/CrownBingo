@@ -33,9 +33,16 @@ $series = todas_las_series();
                     <tbody>
                         <?php while ($serie = $series->fetch_assoc()):?>
                         <tr>
-                            <td class="text-center"><a href="print.php?id=<?=$serie['id']?>"><?=$serie['cliente']?></a></td>
-                            <td class="text-center"><?=$serie['id']?></td>
-                            <td class="text-center"><?=date('d/m/Y H:m:s', strtotime($serie['created_at']))?></td>
+                            <td class="text-center align-middle"><?=$serie['cliente']?></td>
+                            <td class="text-center align-middle"><?=$serie['id']?></td>
+                            <td class="text-center align-middle"><?=date('d/m/Y', strtotime($serie['created_at']))?></td>
+                            <td class="text-center">
+                            <?php $cartones = cartones_de_la_serie($serie['id']);
+                            $counter = 1;
+                            while($carton = $cartones->fetch_assoc()):?>
+                            <div class="mt-3 d-inline"><a class="btn btn-outline-secondary btn-sm" href="print.php?id=<?=$serie['id']?>&fecha=<?=$carton['fecha_juego']?>"><i class="fas fa-file-download"></i> Día <?=$counter?></a></div>
+                            <?php $counter++; endwhile ?>
+                            </td>
                             <td align="center"><a class="btn btn-danger btn-sm text-white"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                         <?php endwhile ?>
